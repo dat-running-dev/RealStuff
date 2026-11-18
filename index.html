@@ -3,164 +3,135 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Chair: A Seat Through History</title>
-  <meta name="description" content="A short guide to chairs: their history, the main types, and how to choose one that fits.">
+  <title>Chairs, briefly</title>
+  <meta name="description" content="Where chairs came from, the main kinds, what their parts are called, and how to check one fits you.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!--
-    Accessibility version. Visual design unchanged from the original.
-    Changes: logo link names the brand for screen readers; timeline and
-    card groups are marked up as lists so NVDA announces list and item counts.
-    Contrast was checked against WCAG AA (4.5:1 for normal text): all pairs pass.
+    Accessibility version. Semantics unchanged by the redesign: real lists,
+    one h1 with h2/h3 below it, labelled nav, link names match visible text.
+    Contrast checked for WCAG AA (4.5:1 for normal text).
   -->
 
   <header class="site-header">
-    <a class="logo" href="#top" aria-label="Chair Guide, back to top">Chair<span>Guide</span></a>
-    <nav aria-label="Main">
-      <a href="#history">History</a>
-      <a href="#types">Types</a>
-      <a href="#anatomy">Anatomy</a>
-      <a href="#choosing">Choosing</a>
-    </nav>
+    <div class="wrap bar">
+      <a class="name" href="#top">Chair Guide</a>
+      <nav aria-label="Main">
+        <a href="#history">History</a>
+        <a href="#types">Types</a>
+        <a href="#anatomy">Parts</a>
+        <a href="#choosing">Choosing</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="top">
+  <main id="top" class="wrap">
 
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">A seat for every purpose</p>
-        <h1>The humble chair has been shaping how we live for five thousand years.</h1>
-        <p class="lead">Chairs signal status, support posture, and set the tone of a room. This guide walks through where they came from, the main kinds you will meet, and how to pick one you will actually enjoy sitting in.</p>
-        <a class="button" href="#types">Explore the types</a>
-      </div>
-      <svg class="hero-art" viewBox="0 0 300 340" role="img" aria-label="Simple line drawing of a wooden chair">
-        <rect x="70" y="20" width="160" height="30" rx="6" class="wood"/>
-        <rect x="80" y="50" width="20" height="130" rx="4" class="wood"/>
-        <rect x="200" y="50" width="20" height="130" rx="4" class="wood"/>
-        <rect x="60" y="180" width="180" height="24" rx="6" class="wood"/>
-        <rect x="80" y="204" width="16" height="110" rx="4" class="wood"/>
-        <rect x="204" y="204" width="16" height="110" rx="4" class="wood"/>
-        <rect x="80" y="280" width="140" height="10" rx="4" class="wood-dark"/>
-      </svg>
+    <section class="intro">
+      <h1>Chairs, briefly.</h1>
+      <p>Most people sit in a chair for hours each week without thinking about it. This page covers where chairs came from, the main kinds, what their parts are called, and how to check whether one fits you.</p>
     </section>
 
-    <section id="history" class="section">
-      <h2>A brief history</h2>
-      <ul class="timeline">
+    <section id="history">
+      <h2>A short history</h2>
+      <ul class="rows">
         <li>
-          <article>
-            <h3>Ancient Egypt, around 3000 BCE</h3>
-            <p>Carved stone and wooden thrones were reserved for pharaohs and officials. Sitting was a sign of rank, and the seat's shape often showed who was in charge.</p>
-          </article>
+          <h3>Ancient Egypt, around 3000 BCE</h3>
+          <p>Stone and wooden thrones were for pharaohs and senior officials. Sitting was a sign of rank, and the shape of a seat told you who was in charge.</p>
         </li>
         <li>
-          <article>
-            <h3>Ancient Greece and Rome</h3>
-            <p>The klismos, a graceful chair with curved legs, appeared in Greek art. Romans added folding stools (the sella curulis) that were used by magistrates and could be carried on campaign.</p>
-          </article>
+          <h3>Ancient Greece and Rome</h3>
+          <p>The klismos, a light chair with curved legs, appears throughout Greek art. Romans used folding stools, the sella curulis, which magistrates carried on campaign.</p>
         </li>
         <li>
-          <article>
-            <h3>Medieval Europe</h3>
-            <p>Most people sat on benches or stools. The heavy, high-backed chair was still largely a status object, often kept near the head of the table for the lord of the house.</p>
-          </article>
+          <h3>Medieval Europe</h3>
+          <p>Most people sat on benches or stools. The tall, high-backed chair stayed a symbol of authority, usually placed at the head of the table for the lord of the house.</p>
         </li>
         <li>
-          <article>
-            <h3>Renaissance to Baroque</h3>
-            <p>Upholstery, carved detail, and turned legs spread through European homes. Chairs became part of the furniture set rather than a single throne.</p>
-          </article>
+          <h3>Renaissance to Baroque</h3>
+          <p>Upholstery, carved detail and turned legs moved into ordinary homes, and chairs began to be sold as matching sets.</p>
         </li>
         <li>
-          <article>
-            <h3>The industrial age</h3>
-            <p>Bentwood chairs, mass-produced by Michael Thonet in the 1850s, made good seating cheap and light enough to ship around the world.</p>
-          </article>
+          <h3>The industrial age</h3>
+          <p>Michael Thonet's bentwood chairs, made in large numbers from the 1850s, were cheap and light enough to ship worldwide.</p>
         </li>
         <li>
-          <article>
-            <h3>Modernism and beyond</h3>
-            <p>Designers such as Marcel Breuer, Charles and Ray Eames, and Arne Jacobsen used steel, plywood, and molded plastic to create chairs that are still in production today.</p>
-          </article>
+          <h3>Modern design</h3>
+          <p>Steel, plywood and molded plastic let designers such as Marcel Breuer, Charles and Ray Eames and Arne Jacobsen make chairs that are still sold today.</p>
         </li>
       </ul>
     </section>
 
-    <section id="types" class="section alt">
-      <h2>Common types of chairs</h2>
-      <ul class="cards">
-        <li class="card">
+    <section id="types">
+      <h2>Kinds of chair</h2>
+      <ul class="rows">
+        <li>
           <h3>Dining chair</h3>
-          <p>Upright and sturdy, with a moderate seat height. Designed for long meals rather than lounging.</p>
+          <p>Upright, with a seat height that suits a table. Built for sitting through a meal, not for lounging.</p>
         </li>
-        <li class="card">
+        <li>
           <h3>Armchair</h3>
-          <p>Padded arms and a deep seat for relaxing. A favorite in living rooms and reading corners.</p>
+          <p>Padded arms and a deep seat. Good for reading and for long conversations.</p>
         </li>
-        <li class="card">
+        <li>
           <h3>Office chair</h3>
-          <p>Adjustable height, tilt, and lumbar support for people who sit for hours at a desk.</p>
+          <p>Adjustable height, tilt and lumbar support, for people who sit at a desk most of the day.</p>
         </li>
-        <li class="card">
+        <li>
           <h3>Rocking chair</h3>
-          <p>Curved runners let the chair sway gently. Popular for nursing and for slow evenings on a porch.</p>
+          <p>Curved runners let it sway. Often used for nursing, and for evenings on a porch.</p>
         </li>
-        <li class="card">
+        <li>
           <h3>Lounge chair</h3>
-          <p>Reclined and cushioned, built for stretching out. The mid-century lounge chair is a classic example.</p>
+          <p>Reclined and well padded, for stretching out. The mid-century versions are still popular.</p>
         </li>
-        <li class="card">
+        <li>
           <h3>Stool</h3>
-          <p>No back and no arms. Compact and flexible, good for counters, workshops, and quick seating.</p>
+          <p>No back and no arms. Small and flexible, for counters, workbenches and quick seats.</p>
         </li>
       </ul>
     </section>
 
-    <section id="anatomy" class="section">
-      <h2>Anatomy of a chair</h2>
-      <div class="split">
-        <ol class="parts">
-          <li><strong>Crest rail</strong>: the top of the backrest, often the most decorative part.</li>
-          <li><strong>Back posts</strong>: the uprights that carry the backrest.</li>
-          <li><strong>Seat</strong>: the surface you sit on. Its depth and height affect comfort most.</li>
-          <li><strong>Stretchers</strong>: the rails between legs that add rigidity.</li>
-          <li><strong>Legs</strong>: they carry the load and set the chair's overall style.</li>
-          <li><strong>Arms</strong>: optional supports that help you stand up and rest your elbows.</li>
-        </ol>
-        <div class="fact-box">
-          <h3>Did you know?</h3>
-          <p>A chair's seat is usually 40 to 46 cm (16 to 18 in) high, which suits most adults. Seat height is the single biggest factor in whether a chair feels comfortable.</p>
-        </div>
-      </div>
+    <section id="anatomy">
+      <h2>Parts of a chair</h2>
+      <ol class="parts">
+        <li><strong>Crest rail:</strong> the top of the backrest. Often the most decorated part.</li>
+        <li><strong>Back posts:</strong> the uprights that hold up the backrest.</li>
+        <li><strong>Seat:</strong> the surface you sit on. Its height and depth matter most for comfort.</li>
+        <li><strong>Stretchers:</strong> the rails between the legs that stop the chair racking.</li>
+        <li><strong>Legs:</strong> they carry the weight and mostly set the chair's style.</li>
+        <li><strong>Arms:</strong> optional supports that help you sit down and stand up.</li>
+      </ol>
+      <p class="note"><strong>Seat height:</strong> most adult seats sit between 40 and 46 cm (16 to 18 in) off the floor. Of everything on this page, seat height has the biggest effect on comfort.</p>
     </section>
 
-    <section id="choosing" class="section alt">
-      <h2>How to choose a chair</h2>
-      <div class="checklist">
-        <div>
-          <h3>Check the height</h3>
-          <p>Your feet should rest flat on the floor with knees at about a right angle. If they dangle or your thighs slope upward, the seat is the wrong height.</p>
-        </div>
-        <div>
-          <h3>Test the depth</h3>
-          <p>Leave two to three finger-widths between the seat edge and the back of your knee so the chair does not press on your legs.</p>
-        </div>
-        <div>
-          <h3>Support your back</h3>
-          <p>A good backrest supports the natural curve of your lower spine. For long sitting, look for lumbar support you can adjust.</p>
-        </div>
-        <div>
-          <h3>Match the room</h3>
-          <p>Think about how you will use the chair: quick meals, long reading sessions, or a desk you use all day. The right answer changes with each.</p>
-        </div>
-      </div>
+    <section id="choosing">
+      <h2>Checking a chair</h2>
+      <ol class="steps">
+        <li>
+          <h3>Height</h3>
+          <p>Sit back and let your feet rest flat. Your knees should be about level with your hips. If your thighs slope down, the seat is too low; if your feet dangle, it is too high.</p>
+        </li>
+        <li>
+          <h3>Depth</h3>
+          <p>Leave two or three finger-widths between the front edge of the seat and the back of your knee.</p>
+        </li>
+        <li>
+          <h3>Back</h3>
+          <p>The backrest should follow the curve of your lower back. If you will sit for long periods, adjustable lumbar support is worth paying for.</p>
+        </li>
+        <li>
+          <h3>Purpose</h3>
+          <p>Think about what you will do in it: quick meals, long reading or a full working day. Those answers change which chair is right.</p>
+        </li>
+      </ol>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <p>Chair Guide. A simple reference on seating, made for curious people.</p>
+  <footer class="site-footer wrap">
+    <p>Chair Guide. Written for people who sit down a lot.</p>
   </footer>
 
 </body>
