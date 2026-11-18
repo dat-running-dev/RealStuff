@@ -18,6 +18,7 @@
     --soft: #a9a79f;
     --rule: #34332f;
     --accent: #8fc4b2;
+    color-scheme: dark;
   }
 }
 
@@ -27,6 +28,7 @@
   --soft: #a9a79f;
   --rule: #34332f;
   --accent: #8fc4b2;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -200,6 +202,153 @@ p { margin: 0; }
 }
 .pager .next { margin-left: auto; text-align: right; }
 
+/* Header: Grid / Timeline switch */
+.site-header nav { display: flex; gap: 1.25rem; }
+.site-header nav a[aria-current="page"] { color: var(--ink); text-decoration-thickness: 2px; }
+
+/* Timeline.
+   Desktop: one row you scroll sideways. A line runs through a dot for each
+   chair, and the space between chairs grows with the gap in years (shortened
+   so chairs from the same decade stay readable).
+   Phone: the same list runs down the page. */
+.timeline-tools { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; }
+.timeline-tools[hidden] { display: none; }
+.tl-btn {
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+.tl-btn:hover { border-color: var(--ink); }
+.tl-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.scroll-hint { color: var(--soft); font-size: 0.9rem; margin-left: 0.5rem; }
+
+/* The bar is hidden for a cleaner look. Scrolling still works with a trackpad,
+   touch, the arrow keys, tabbing through the chairs, and the Earlier / Later
+   buttons. */
+.scroller {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroller::-webkit-scrollbar { display: none; }
+
+/* A slim bar of our own to drag along the timeline. The handle is as wide as
+   the part of the timeline you can see. */
+.tl-track {
+  position: relative;
+  height: 6px;
+  margin: 0 0 1.5rem;
+  background: var(--rule);
+  cursor: pointer;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.tl-track[hidden] { display: none; }
+.tl-track::before { content: ""; position: absolute; inset: -12px 0; } /* bigger target */
+.tl-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--soft);
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+}
+.tl-thumb::before { content: ""; position: absolute; inset: -12px 0; }
+.tl-track:hover .tl-thumb { background: var(--ink); }
+.tl-track.is-dragging, .tl-track.is-dragging .tl-thumb { cursor: grabbing; }
+.tl-track.is-dragging .tl-thumb { background: var(--ink); }
+.scroller:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 2rem 0 0;
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(3.75rem + 4px);
+  border-top: 1px solid var(--ink);
+}
+.timeline li { position: relative; flex: none; width: 190px; margin-left: var(--gap, 0); }
+.timeline .era { height: 1.4rem; margin: 0; font-size: 0.8rem; color: var(--soft); }
+.timeline .year { margin: 0.15rem 0 0.6rem; font-size: 1.6rem; line-height: 1.6rem; white-space: nowrap; }
+.timeline .dot {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  margin-bottom: 1.1rem;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.timeline .since {
+  position: absolute;
+  right: 100%;
+  top: calc(3.75rem - 1rem);
+  width: var(--gap);
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  color: var(--soft);
+}
+.timeline .card { position: relative; }
+.timeline .card:focus-within .peek,
+.timeline li.is-held .peek { opacity: 1; }
+@media (hover: hover) {
+  .timeline .card:hover .peek { opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .timeline-tools { display: none; }
+  .tl-track { display: none; }
+  .scroller { overflow: visible; padding-bottom: 0; }
+  .timeline {
+    display: block;
+    width: auto;
+    margin-left: 0.4rem;
+    padding: 0 0 0 1.4rem;
+    border-left: 1px solid var(--ink);
+  }
+  .timeline::before { display: none; }
+  .timeline li { display: flex; flex-direction: column; width: auto; margin: 0 0 2.5rem; }
+  .timeline li:last-child { margin-bottom: 0; }
+  .timeline .since { order: -3; position: static; width: auto; display: block; margin: 0 0 0.35rem; font-size: 0.85rem; }
+  .timeline .since .vis::after { content: " later"; }
+  .timeline .era { order: -2; height: auto; }
+  .timeline .era:empty { display: none; }
+  .timeline .year { order: -1; margin: 0 0 0.6rem; }
+  .timeline .dot { display: none; }
+  .timeline .year { position: relative; }
+  .timeline .year::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.4rem - 5px);
+    top: calc(0.8rem - 4.5px);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .timeline .card { max-width: 20rem; }
+}
+
 /* Footer */
 .site-footer {
   margin-top: 4rem;
@@ -224,4 +373,141 @@ p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .peek { transition: none; }
+  html { scroll-behavior: auto; }
 }
+
+/* Header: accessibility switch */
+.bar-right { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1.25rem; }
+.a11y-toggle {
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--soft);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+}
+.a11y-toggle[hidden] { display: none; }
+.a11y-toggle:hover { border-color: var(--ink); color: var(--ink); }
+.a11y-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.a11y-toggle[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.a11y-note { margin-top: 0.6rem; max-width: 40rem; }
+.a11y-note[hidden] { display: none; }
+
+/* Text for screen readers only. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Escape closes a preview that is showing (see hold.js). In accessibility mode
+   previews are plain text under the photo, so they are never closed. */
+:root:not([data-a11y="on"]) .grid li.peek-off .peek,
+:root:not([data-a11y="on"]) .timeline li.peek-off .peek { opacity: 0 !important; }
+
+/* ===== Accessibility mode =====
+   Larger text and spacing, strong contrast, previews always visible, no
+   animation, and the timeline as a plain vertical list. Switched on with the
+   header button (a11y.js sets data-a11y="on" on the page), and on by default
+   when the device asks for more contrast. */
+:root[data-a11y="on"] {
+  font-size: 125%;
+  --paper: #ffffff;
+  --ink: #000000;
+  --soft: #2b2b2b;
+  --rule: #595959;
+  --accent: #0a4a38;
+  --plate: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-a11y="on"]:not([data-theme="light"]) {
+    --paper: #000000;
+    --ink: #ffffff;
+    --soft: #dcdcdc;
+    --rule: #9a9a9a;
+    --accent: #9fe3cc;
+  }
+}
+:root[data-a11y="on"][data-theme="dark"] {
+  --paper: #000000;
+  --ink: #ffffff;
+  --soft: #dcdcdc;
+  --rule: #9a9a9a;
+  --accent: #9fe3cc;
+}
+
+:root[data-a11y="on"] body { line-height: 1.75; }
+:root[data-a11y="on"] *,
+:root[data-a11y="on"] *::before,
+:root[data-a11y="on"] *::after {
+  transition: none !important;
+  animation: none !important;
+  scroll-behavior: auto !important;
+}
+:root[data-a11y="on"] :focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+:root[data-a11y="on"] .site-header nav a { color: var(--ink); }
+:root[data-a11y="on"] .tile .name { text-decoration: underline; text-underline-offset: 0.2em; }
+:root[data-a11y="on"] .hint { display: none !important; }
+
+/* Previews are always shown, under the caption, instead of on hover or hold. */
+:root[data-a11y="on"] .peek {
+  position: static;
+  width: auto;
+  aspect-ratio: auto;
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 0.4rem;
+}
+:root[data-a11y="on"] .peek span {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--soft);
+  font-size: 0.95rem;
+}
+
+/* Two columns at most, so text stays a comfortable size. */
+@media (min-width: 481px) {
+  :root[data-a11y="on"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Timeline: a plain vertical list, no sideways scrolling. */
+:root[data-a11y="on"] .timeline-tools,
+:root[data-a11y="on"] .tl-track { display: none; }
+:root[data-a11y="on"] .scroller { overflow: visible; padding-bottom: 0; }
+:root[data-a11y="on"] .timeline {
+  display: block;
+  width: auto;
+  margin-left: 0.4rem;
+  padding: 0 0 0 1.4rem;
+  border-left: 1px solid var(--ink);
+}
+:root[data-a11y="on"] .timeline::before { display: none; }
+:root[data-a11y="on"] .timeline li { display: flex; flex-direction: column; width: auto; margin: 0 0 2.5rem; }
+:root[data-a11y="on"] .timeline li:last-child { margin-bottom: 0; }
+:root[data-a11y="on"] .timeline .since { order: -3; position: static; width: auto; display: block; margin: 0 0 0.35rem; font-size: 0.85rem; }
+:root[data-a11y="on"] .timeline .since .vis::after { content: " later"; }
+:root[data-a11y="on"] .timeline .era { order: -2; height: auto; font-size: 0.85rem; }
+:root[data-a11y="on"] .timeline .era:empty { display: none; }
+:root[data-a11y="on"] .timeline .year { order: -1; margin: 0 0 0.6rem; position: relative; }
+:root[data-a11y="on"] .timeline .year::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.4rem - 5px);
+  top: calc(0.8rem - 4.5px);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+:root[data-a11y="on"] .timeline .dot { display: none; }
+:root[data-a11y="on"] .timeline .card { max-width: 22rem; }

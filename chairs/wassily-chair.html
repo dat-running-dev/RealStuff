@@ -6,11 +6,19 @@
   <title>Wassily Chair: Chair Guide</title>
   <meta name="description" content="Bent steel tube, inspired by bicycle handlebars, with a sling seat and back.">
   <link rel="stylesheet" href="../styles.css">
+  <script src="../a11y.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap bar">
       <a class="name-link" href="../index.html">Chair Guide</a>
+      <div class="bar-right">
+        <nav aria-label="Views">
+          <a href="../index.html">Grid</a>
+          <a href="../timeline.html">Timeline</a>
+        </nav>
+        <button type="button" class="a11y-toggle" aria-pressed="false" hidden>Accessibility mode<span aria-hidden="true">: <span class="state">off</span></span></button>
+      </div>
     </div>
   </header>
 
@@ -49,6 +57,7 @@
 
   <footer class="site-footer wrap">
     <p>Chair Guide. <a href="../index.html">Back to all chairs</a>.</p>
+    <p class="a11y-note" hidden>Accessibility mode (top right) gives larger text, stronger contrast, previews that are always visible, no animation, and a plain vertical timeline. Your choice is saved on this device.</p>
   </footer>
 </body>
 </html>
