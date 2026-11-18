@@ -1,5 +1,6 @@
-/* Accessibility version, second design pass.
-   One serif family, one accent colour, underlined links, list rows instead of cards. */
+/* Chair gallery.
+   Plain paper and ink, one serif family, one green for links.
+   Photos sit on a fixed light plate so every chair is framed the same way. */
 
 :root {
   --paper: #f5f4ef;
@@ -7,6 +8,7 @@
   --soft: #55534d;
   --rule: #cfcdc4;
   --accent: #2f5d50;
+  --plate: #e9e8e2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,16 +41,17 @@ body {
 }
 
 a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
 h1, h2, h3 { font-weight: 400; line-height: 1.15; margin: 0; }
-h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing: -0.01em; margin-bottom: 1.25rem; }
-h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
-h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); letter-spacing: -0.01em; margin-bottom: 1rem; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; }
 p { margin: 0; }
 
 .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+.wrap.wide { max-width: 72rem; }
 
-/* Header: plain, not sticky */
+/* Header */
 .site-header { border-bottom: 1px solid var(--rule); }
 .bar {
   display: flex;
@@ -59,39 +62,143 @@ p { margin: 0; }
   padding-top: 1.1rem;
   padding-bottom: 1.1rem;
 }
-.name { color: var(--ink); font-size: 1.05rem; text-decoration: none; }
-.site-header nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; font-size: 0.95rem; }
+.name-link { color: var(--ink); font-size: 1.05rem; text-decoration: none; }
+.site-header nav { font-size: 0.95rem; }
 .site-header nav a { color: var(--soft); }
 .site-header nav a:hover { color: var(--ink); }
 
-/* Sections */
-main section { padding-top: 3rem; }
-main section + section { margin-top: 1rem; }
-.intro { padding-top: 3.5rem; }
-.intro p { color: var(--soft); font-size: 1.15rem; max-width: 34rem; }
+/* Gallery front page */
+.intro { padding: 3.5rem 0 2.5rem; }
+.intro p { color: var(--soft); font-size: 1.1rem; max-width: 36rem; }
+.hint { margin-top: 0.6rem; font-size: 0.95rem !important; }
+.hint-touch { display: none; }
 
-/* Rows: history and types */
-.rows { list-style: none; margin: 0; padding: 0; }
-.rows li {
-  padding: 1.1rem 0;
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.75rem 1.75rem;
+}
+
+.grid li { position: relative; }
+
+.tile {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Every photo is cropped to the same 4:5 frame and fills it edge to edge,
+   so all nine tiles have the same size and shape. */
+.plate {
+  display: block;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--plate);
+  overflow: hidden;
+}
+.plate img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  -webkit-user-drag: none;
+}
+
+/* Square and landscape photos: show the whole chair, uncropped, over a soft
+   blurred copy of the same photo so the tile keeps the same size and shape. */
+.plate.fit-contain::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background: var(--bg-img) center / cover no-repeat;
+  filter: blur(22px);
+}
+.plate.fit-contain img { object-fit: contain; }
+
+.tile .name { font-size: 1.05rem; font-weight: 700; margin: 0.8rem 0 0.1rem; }
+.tile .by { color: var(--soft); font-size: 0.92rem; }
+.tile:hover .name,
+.tile:focus-visible .name { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Preview strip, shown on hover, keyboard focus, or touch-and-hold */
+.peek {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.peek span {
+  display: block;
+  width: 100%;
+  padding: 1rem 1rem 1.1rem;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.45;
   border-top: 1px solid var(--rule);
 }
-.rows li:last-child { border-bottom: 1px solid var(--rule); }
-.rows p { color: var(--soft); }
+.grid li:focus-within .peek,
+.grid li.is-held .peek { opacity: 1; }
 
-/* Anatomy */
-.parts { padding-left: 1.25rem; margin: 0 0 1.5rem; }
-.parts li { margin-bottom: 0.6rem; padding-left: 0.2rem; }
-.note {
-  color: var(--soft);
-  border-left: 2px solid var(--rule);
-  padding-left: 1rem;
+@media (hover: hover) {
+  .grid li:hover .peek { opacity: 1; }
 }
 
-/* Checking steps */
-.steps { padding-left: 1.25rem; margin: 0; }
-.steps li { padding-left: 0.3rem; margin-bottom: 1.3rem; }
-.steps p { color: var(--soft); margin-top: 0.2rem; }
+@media (hover: none) {
+  .hint-hover { display: none; }
+  .hint-touch { display: inline; }
+}
+
+/* Chair pages */
+.crumb { padding-top: 2rem; font-size: 0.95rem; }
+.article h1 { margin-top: 1rem; margin-bottom: 0.3rem; }
+.article .by { color: var(--soft); font-size: 1.1rem; margin-bottom: 1.75rem; }
+
+.photo { margin: 0 0 2.5rem; }
+.photo .plate { aspect-ratio: auto; padding: 1.5rem; text-align: center; }
+.photo .plate img {
+  position: static;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh;
+  padding: 0;
+}
+.photo figcaption { margin-top: 0.6rem; color: var(--soft); font-size: 0.85rem; }
+
+.article section { padding-top: 0.5rem; }
+.article section p { margin-bottom: 1rem; }
+.article section + section { margin-top: 2rem; }
+
+.facts { margin: 0; display: grid; grid-template-columns: 9rem 1fr; gap: 0.6rem 1rem; }
+.facts dt { color: var(--soft); font-size: 0.95rem; }
+.facts dd { margin: 0; }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.pager .next { margin-left: auto; text-align: right; }
 
 /* Footer */
 .site-footer {
@@ -102,8 +209,19 @@ main section + section { margin-top: 1rem; }
   color: var(--soft);
   font-size: 0.9rem;
 }
-.site-footer p { margin: 0; }
 
-@media (max-width: 480px) {
-  body { font-size: 1rem; }
+/* Smaller screens */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem 1.25rem; }
+}
+@media (max-width: 380px) {
+  .facts { grid-template-columns: 1fr; gap: 0.1rem; }
+  .facts dd { margin-bottom: 0.7rem; }
+}
+@media (max-width: 320px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .peek { transition: none; }
 }
