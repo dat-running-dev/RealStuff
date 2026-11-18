@@ -1,3 +1,6 @@
+/* Accessibility version: visual design is identical to the original.
+   Only addition: list reset so the timeline and card lists keep their look. */
+
 :root {
   --bg: #faf7f2;
   --surface: #ffffff;
@@ -168,11 +171,14 @@ p { margin: 0 0 1em; }
 }
 .section.alt h2 { padding-top: 0; }
 
-/* Timeline */
+/* Timeline (list reset keeps the grid look) */
 .timeline {
   display: grid;
   gap: 1.2rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .timeline article {
   background: var(--surface);
@@ -184,11 +190,14 @@ p { margin: 0 0 1em; }
 .timeline h3 { color: var(--accent); font-size: 1.02rem; }
 .timeline p { margin: 0; color: var(--muted); font-size: 0.98rem; }
 
-/* Cards */
+/* Cards (list reset keeps the grid look) */
 .cards {
   display: grid;
   gap: 1.2rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .card {
   background: var(--surface);

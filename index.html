@@ -8,9 +8,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!--
+    Accessibility version. Visual design unchanged from the original.
+    Changes: logo link names the brand for screen readers; timeline and
+    card groups are marked up as lists so NVDA announces list and item counts.
+    Contrast was checked against WCAG AA (4.5:1 for normal text): all pairs pass.
+  -->
 
   <header class="site-header">
-    <a class="logo" href="#top" aria-label="Back to top">Chair<span>Guide</span></a>
+    <a class="logo" href="#top" aria-label="Chair Guide, back to top">Chair<span>Guide</span></a>
     <nav aria-label="Main">
       <a href="#history">History</a>
       <a href="#types">Types</a>
@@ -41,62 +47,74 @@
 
     <section id="history" class="section">
       <h2>A brief history</h2>
-      <div class="timeline">
-        <article>
-          <h3>Ancient Egypt, c. 3000 BCE</h3>
-          <p>Carved stone and wooden thrones were reserved for pharaohs and officials. Sitting was a sign of rank, and the seat's shape often showed who was in charge.</p>
-        </article>
-        <article>
-          <h3>Ancient Greece and Rome</h3>
-          <p>The klismos, a graceful chair with curved legs, appeared in Greek art. Romans added folding stools (the sella curulis) that were used by magistrates and could be carried on campaign.</p>
-        </article>
-        <article>
-          <h3>Medieval Europe</h3>
-          <p>Most people sat on benches or stools. The heavy, high-backed chair was still largely a status object, often kept near the head of the table for the lord of the house.</p>
-        </article>
-        <article>
-          <h3>Renaissance to Baroque</h3>
-          <p>Upholstery, carved detail, and turned legs spread through European homes. Chairs became part of the furniture set rather than a single throne.</p>
-        </article>
-        <article>
-          <h3>The industrial age</h3>
-          <p>Bentwood chairs, mass-produced by Michael Thonet in the 1850s, made good seating cheap and light enough to ship around the world.</p>
-        </article>
-        <article>
-          <h3>Modernism and beyond</h3>
-          <p>Designers such as Marcel Breuer, Charles and Ray Eames, and Arne Jacobsen used steel, plywood, and molded plastic to create chairs that are still in production today.</p>
-        </article>
-      </div>
+      <ul class="timeline">
+        <li>
+          <article>
+            <h3>Ancient Egypt, around 3000 BCE</h3>
+            <p>Carved stone and wooden thrones were reserved for pharaohs and officials. Sitting was a sign of rank, and the seat's shape often showed who was in charge.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Ancient Greece and Rome</h3>
+            <p>The klismos, a graceful chair with curved legs, appeared in Greek art. Romans added folding stools (the sella curulis) that were used by magistrates and could be carried on campaign.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Medieval Europe</h3>
+            <p>Most people sat on benches or stools. The heavy, high-backed chair was still largely a status object, often kept near the head of the table for the lord of the house.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Renaissance to Baroque</h3>
+            <p>Upholstery, carved detail, and turned legs spread through European homes. Chairs became part of the furniture set rather than a single throne.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>The industrial age</h3>
+            <p>Bentwood chairs, mass-produced by Michael Thonet in the 1850s, made good seating cheap and light enough to ship around the world.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Modernism and beyond</h3>
+            <p>Designers such as Marcel Breuer, Charles and Ray Eames, and Arne Jacobsen used steel, plywood, and molded plastic to create chairs that are still in production today.</p>
+          </article>
+        </li>
+      </ul>
     </section>
 
     <section id="types" class="section alt">
       <h2>Common types of chairs</h2>
-      <div class="cards">
-        <article class="card">
+      <ul class="cards">
+        <li class="card">
           <h3>Dining chair</h3>
           <p>Upright and sturdy, with a moderate seat height. Designed for long meals rather than lounging.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Armchair</h3>
           <p>Padded arms and a deep seat for relaxing. A favorite in living rooms and reading corners.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Office chair</h3>
           <p>Adjustable height, tilt, and lumbar support for people who sit for hours at a desk.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Rocking chair</h3>
           <p>Curved runners let the chair sway gently. Popular for nursing and for slow evenings on a porch.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Lounge chair</h3>
           <p>Reclined and cushioned, built for stretching out. The mid-century lounge chair is a classic example.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Stool</h3>
           <p>No back and no arms. Compact and flexible, good for counters, workshops, and quick seating.</p>
-        </article>
-      </div>
+        </li>
+      </ul>
     </section>
 
     <section id="anatomy" class="section">
