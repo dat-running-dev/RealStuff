@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chair Guide: nine chairs</title>
-  <meta name="description" content="Nine well-known chairs and the story behind each one.">
+  <title>Chair Guide: nine chairs in order</title>
+  <meta name="description" content="Nine well-known chairs in date order, from the early 1700s to 1960, with the story behind each one.">
   <link rel="stylesheet" href="styles.css">
   <script src="a11y.js"></script>
 </head>
@@ -13,10 +13,6 @@
     <div class="wrap wide bar">
       <a class="name-link" href="index.html">Chair Guide</a>
       <div class="bar-right">
-        <nav aria-label="Views">
-          <a href="index.html" aria-current="page">Grid</a>
-          <a href="timeline.html">Timeline</a>
-        </nav>
         <button type="button" class="a11y-toggle" aria-pressed="false" hidden>Accessibility mode<span aria-hidden="true">: <span class="state">off</span></span></button>
       </div>
     </div>
@@ -24,76 +20,130 @@
 
   <main class="wrap wide">
     <section class="intro">
-      <h1>Nine chairs, and where they came from.</h1>
-      <p>A short history of chairs people still sit in, from an eighteenth-century country chair to a plastic one from the 1960s.</p>
-      <p class="hint"><span class="hint-hover">Hover over a chair for a preview. Select it for the full story.</span><span class="hint-touch">Touch and hold a chair for a preview. Tap it for the full story.</span></p>
+      <h1>Nine chairs, in order.</h1>
+      <p>From a country chair of the early 1700s to a plastic one of 1960. The space between chairs follows the gap between their dates, shortened so chairs made in the same decade stay readable.</p>
     </section>
 
-    <ul class="grid">
-      <li>
-        <a class="tile" href="chairs/windsor-chair.html" aria-describedby="peek-windsor-chair">
+    <div class="scroller" role="region" aria-label="Timeline of nine chairs">
+      <ol class="timeline">
+        <li>
+          <p class="era" aria-hidden="true"></p>
+          <p class="year" aria-hidden="true">early 1700s</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/windsor-chair.html" aria-describedby="peek-windsor-chair">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Fan-Backed_Windsor_Chair%2C_1760-1770%2C_Philadelphia%2C_tulip%2C_maple%2C_hickory%2C_oak_-_Art_Institute_of_Chicago_-_DSC09911.JPG/960px-Fan-Backed_Windsor_Chair%2C_1760-1770%2C_Philadelphia%2C_tulip%2C_maple%2C_hickory%2C_oak_-_Art_Institute_of_Chicago_-_DSC09911.JPG" alt="" loading="eager" draggable="false"></span>
             <h2 class="name">Windsor chair</h2>
             <p class="by">English chairmakers, early 1700s</p>
           </a>
-          <p class="peek" id="peek-windsor-chair" aria-hidden="true"><span>A spindle back, a solid wooden seat, and legs fitted straight into it.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/thonet-no-14.html" aria-describedby="peek-thonet-no-14">
+          <p class="peek" id="peek-windsor-chair" aria-hidden="true"><span>A spindle back, a solid wooden seat, and legs fitted straight into it.</span></p>          </div>
+        </li>
+        <li style="--gap: 190px">
+          <span class="since"><span class="vis" aria-hidden="true">about 140 years</span><span class="sr-only">about 140 years after the previous chair</span></span>
+          <p class="era">Industrial age</p>
+          <p class="year" aria-hidden="true">1859</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/thonet-no-14.html" aria-describedby="peek-thonet-no-14">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Thonet_Chair_No._14.JPG/960px-Thonet_Chair_No._14.JPG" alt="" loading="eager" draggable="false"></span>
             <h2 class="name">Thonet No. 14</h2>
             <p class="by">Michael Thonet, 1859</p>
           </a>
-          <p class="peek" id="peek-thonet-no-14" aria-hidden="true"><span>Six pieces of bent beech, ten screws and two nuts, shipped flat-packed.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/red-and-blue-chair.html" aria-describedby="peek-red-and-blue-chair">
+          <p class="peek" id="peek-thonet-no-14" aria-hidden="true"><span>Six pieces of bent beech, ten screws and two nuts, shipped flat-packed.</span></p>          </div>
+        </li>
+        <li style="--gap: 132px">
+          <span class="since"><span class="vis" aria-hidden="true">59 years</span><span class="sr-only">59 years after the previous chair</span></span>
+          <p class="era">Modernism</p>
+          <p class="year" aria-hidden="true">1918</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/red-and-blue-chair.html" aria-describedby="peek-red-and-blue-chair">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Rietveld_chair_1.JPG" alt="" loading="eager" draggable="false"></span>
             <h2 class="name">Red and Blue Chair</h2>
             <p class="by">Gerrit Rietveld, 1918</p>
           </a>
-          <p class="peek" id="peek-red-and-blue-chair" aria-hidden="true"><span>Thirteen lengths of timber and two boards, painted to show how they join.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/wassily-chair.html" aria-describedby="peek-wassily-chair">
-            <span class="plate fit-contain" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG/960px-Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG/960px-Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG" alt="" loading="lazy" draggable="false"></span>
+          <p class="peek" id="peek-red-and-blue-chair" aria-hidden="true"><span>Thirteen lengths of timber and two boards, painted to show how they join.</span></p>          </div>
+        </li>
+        <li style="--gap: 61px">
+          <span class="since"><span class="vis" aria-hidden="true">7 years</span><span class="sr-only">7 years after the previous chair</span></span>
+          <p class="era" aria-hidden="true"></p>
+          <p class="year" aria-hidden="true">1925</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/wassily-chair.html" aria-describedby="peek-wassily-chair">
+            <span class="plate fit-contain" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG/960px-Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG/960px-Marcel_breuer%2C_poltrona_B_3%2C_1925%2C_02.JPG" alt="" loading="eager" draggable="false"></span>
             <h2 class="name">Wassily Chair</h2>
             <p class="by">Marcel Breuer, 1925</p>
           </a>
-          <p class="peek" id="peek-wassily-chair" aria-hidden="true"><span>Bent steel tube, inspired by bicycle handlebars, with a sling seat and back.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/barcelona-chair.html" aria-describedby="peek-barcelona-chair">
+          <p class="peek" id="peek-wassily-chair" aria-hidden="true"><span>Bent steel tube, inspired by bicycle handlebars, with a sling seat and back.</span></p>          </div>
+        </li>
+        <li style="--gap: 52px">
+          <span class="since"><span class="vis" aria-hidden="true">4 years</span><span class="sr-only">4 years after the previous chair</span></span>
+          <p class="era" aria-hidden="true"></p>
+          <p class="year" aria-hidden="true">1929</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/barcelona-chair.html" aria-describedby="peek-barcelona-chair">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Barcelona_chair%2C_Guggenheim_Bilbao.jpg/960px-Barcelona_chair%2C_Guggenheim_Bilbao.jpg" alt="" loading="lazy" draggable="false"></span>
             <h2 class="name">Barcelona Chair</h2>
             <p class="by">Mies van der Rohe and Lilly Reich, 1929</p>
           </a>
-          <p class="peek" id="peek-barcelona-chair" aria-hidden="true"><span>A steel X-frame and leather cushions, made for a pavilion that stood for less than a year.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/eames-lounge-chair.html" aria-describedby="peek-eames-lounge-chair">
+          <p class="peek" id="peek-barcelona-chair" aria-hidden="true"><span>A steel X-frame and leather cushions, made for a pavilion that stood for less than a year.</span></p>          </div>
+        </li>
+        <li style="--gap: 97px">
+          <span class="since"><span class="vis" aria-hidden="true">27 years</span><span class="sr-only">27 years after the previous chair</span></span>
+          <p class="era">Mid-century</p>
+          <p class="year" aria-hidden="true">1956</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/eames-lounge-chair.html" aria-describedby="peek-eames-lounge-chair">
             <span class="plate fit-contain" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ngv_design%2C_charles_eames_and_herman_miller%2C_lounge_chair_670%2C_1956.JPG/960px-Ngv_design%2C_charles_eames_and_herman_miller%2C_lounge_chair_670%2C_1956.JPG')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ngv_design%2C_charles_eames_and_herman_miller%2C_lounge_chair_670%2C_1956.JPG/960px-Ngv_design%2C_charles_eames_and_herman_miller%2C_lounge_chair_670%2C_1956.JPG" alt="" loading="lazy" draggable="false"></span>
             <h2 class="name">Eames Lounge Chair</h2>
             <p class="by">Charles and Ray Eames, 1956</p>
           </a>
-          <p class="peek" id="peek-eames-lounge-chair" aria-hidden="true"><span>Moulded plywood shells and leather cushions, inspired by a well-worn baseball glove.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/tulip-chair.html" aria-describedby="peek-tulip-chair">
+          <p class="peek" id="peek-eames-lounge-chair" aria-hidden="true"><span>Moulded plywood shells and leather cushions, inspired by a well-worn baseball glove.</span></p>          </div>
+        </li>
+        <li style="--gap: 38px">
+          <span class="since"><span class="vis" aria-hidden="true">1 year</span><span class="sr-only">1 year after the previous chair</span></span>
+          <p class="era" aria-hidden="true"></p>
+          <p class="year" aria-hidden="true">1957</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/tulip-chair.html" aria-describedby="peek-tulip-chair">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Eero_saarinen_per_knoll_international%2C_sedia_tulip_dalla_collezione_pedestal%2C_1955-56.jpg/960px-Eero_saarinen_per_knoll_international%2C_sedia_tulip_dalla_collezione_pedestal%2C_1955-56.jpg" alt="" loading="lazy" draggable="false"></span>
             <h2 class="name">Tulip Chair</h2>
             <p class="by">Eero Saarinen, 1957</p>
           </a>
-          <p class="peek" id="peek-tulip-chair" aria-hidden="true"><span>One pedestal instead of four legs, to clear the clutter under a table.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/egg-chair.html" aria-describedby="peek-egg-chair">
+          <p class="peek" id="peek-tulip-chair" aria-hidden="true"><span>One pedestal instead of four legs, to clear the clutter under a table.</span></p>          </div>
+        </li>
+        <li style="--gap: 38px">
+          <span class="since"><span class="vis" aria-hidden="true">1 year</span><span class="sr-only">1 year after the previous chair</span></span>
+          <p class="era" aria-hidden="true"></p>
+          <p class="year" aria-hidden="true">1958</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/egg-chair.html" aria-describedby="peek-egg-chair">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Egg_chair_-_Arne_Jacobsen_%281958%29.jpg/960px-Egg_chair_-_Arne_Jacobsen_%281958%29.jpg" alt="" loading="lazy" draggable="false"></span>
             <h2 class="name">Egg Chair</h2>
             <p class="by">Arne Jacobsen, 1958</p>
           </a>
-          <p class="peek" id="peek-egg-chair" aria-hidden="true"><span>Made for a hotel lobby, to give guests a quiet corner in a busy room.</span></p>      </li>
-      <li>
-        <a class="tile" href="chairs/panton-chair.html" aria-describedby="peek-panton-chair">
+          <p class="peek" id="peek-egg-chair" aria-hidden="true"><span>Made for a hotel lobby, to give guests a quiet corner in a busy room.</span></p>          </div>
+        </li>
+        <li style="--gap: 44px">
+          <span class="since"><span class="vis" aria-hidden="true">2 years</span><span class="sr-only">2 years after the previous chair</span></span>
+          <p class="era" aria-hidden="true"></p>
+          <p class="year" aria-hidden="true">1960</p>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+          <a class="tile" href="chairs/panton-chair.html" aria-describedby="peek-panton-chair">
             <span class="plate"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Panton_Chair_by_Verner_Panton.JPG/960px-Panton_Chair_by_Verner_Panton.JPG" alt="" loading="lazy" draggable="false"></span>
             <h2 class="name">Panton Chair</h2>
             <p class="by">Verner Panton, 1960</p>
           </a>
-          <p class="peek" id="peek-panton-chair" aria-hidden="true"><span>A single curve of moulded plastic with no back legs.</span></p>      </li>
-    </ul>
+          <p class="peek" id="peek-panton-chair" aria-hidden="true"><span>A single curve of moulded plastic with no back legs.</span></p>          </div>
+        </li>
+      </ol>
+    </div>
   </main>
 
   <footer class="site-footer wrap wide">
@@ -102,5 +152,6 @@
   </footer>
 
   <script src="hold.js"></script>
+  <script src="timeline.js"></script>
 </body>
 </html>

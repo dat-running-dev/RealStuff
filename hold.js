@@ -17,7 +17,7 @@
     return root.getAttribute('data-a11y') === 'on';
   }
 
-  var items = document.querySelectorAll('.grid li, .timeline li');
+  var items = document.querySelectorAll('.timeline li');
 
   items.forEach(function (item) {
     var link = item.querySelector('a.tile');
@@ -71,7 +71,7 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
-    document.querySelectorAll('.grid li, .timeline li').forEach(function (item) {
+    document.querySelectorAll('.timeline li').forEach(function (item) {
       if (item.matches(':hover, :focus-within, .is-held')) {
         item.classList.add('peek-off');
       }
